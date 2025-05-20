@@ -21,9 +21,11 @@ class SauceDemoScraper(BaseCase):
         #aguarda a lista de produtos para garantir que o login foi bem sucedido
         self.wait_for_element('.inventory_list')
 
-    def extract_products(self): #função para extrair nome, descrição e preço dos produtos disponíveis
+    #função para extrair nome, descrição e preço dos produtos e armazenar em uma lista
+    def extract_products(self):
         products = self.find_element('.inventory_item')
         extracted = [] 
+        #loop para pegar os dados de todos os produtos
         for item in products:
             name = item.find_element('.inventory_item_name').text
             description = item.find_element('.inventory_item_desc').text

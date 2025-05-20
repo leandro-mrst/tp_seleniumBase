@@ -30,6 +30,7 @@ class SauceDemoScraper(BaseCase):
             name = item.find_element('.inventory_item_name').text
             description = item.find_element('.inventory_item_desc').text
             price = item.find_element('.inventory_item_price').text
+            #adição dos dados na lista
             extracted.append({
                 'nome': name,
                 'descrição': description,

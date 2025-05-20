@@ -1,1 +1,20 @@
-#luana: hello kk
+from seleniumbase import BaseCase
+import csv
+
+class SauceDemoScraper(BaseCase):
+    URL = 'https://www.saucedemo.com/'
+    USERNAME = 'standard_user'
+    PASSWORD = 'secret_sauce'
+    FIRST_NAME = 'Trainee'
+    LAST_NAME = 'PiJunior'
+    ZIP_CODE = '31270-901'
+    CSV_FILE = 'products.csv'
+
+    def login(self):
+        #realiza login no site
+        self.open(self.URL)
+        self.wait_for_element('#user-name')
+        self.send_keys('#user-name', self.USERNAME)
+        self.click('#login-button')
+        #verifica login bem-sucedido e aguarda produtos aparecerem
+        self.wait_for_element('.inventory_list')

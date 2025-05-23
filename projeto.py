@@ -43,7 +43,6 @@ class SauceDemoScraper(BaseCase):
         if not products:
             print("Nenhum dado para salvar.")
             return
-        
         with open(self.CSV_FILE, mode='w', newline='', encoding='utf-8') as file:
             writer = csv.DictWriter(file, fieldnames=['name', 'description', 'price'])
             writer.writeheader()
